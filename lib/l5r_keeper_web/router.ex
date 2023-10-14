@@ -18,6 +18,8 @@ defmodule L5rKeeperWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+
+    resources "/users", UserController, only: [:show]
   end
 
   # Other scopes may use custom stacks.
