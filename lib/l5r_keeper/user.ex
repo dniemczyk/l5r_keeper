@@ -9,6 +9,8 @@ defmodule L5rKeeper.User do
     field :password_hash, :string
     field :is_admin, :boolean, default: false
 
+    has_many :characters, L5rKeeper.Character
+
     timestamps()
   end
 
