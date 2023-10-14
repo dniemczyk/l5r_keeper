@@ -2,6 +2,9 @@ defmodule L5rKeeper.User do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @required_fields ~w(email)a
+  @optional_fields ~w(name is_admin)a
+
   schema "users" do
     field :name, :string
     field :email, :string
@@ -17,7 +20,7 @@ defmodule L5rKeeper.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:email, :name, :password_hash, :is_admin])
-    |> validate_required([:email, :name, :password_hash, :is_admin])
+    |> cast(attrs, @required_fields ++ @optional_fields)
+    |> validate_required(@required_fields)
   end
 end

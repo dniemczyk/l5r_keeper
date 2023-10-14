@@ -2,6 +2,9 @@ defmodule L5rKeeper.Character do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @required_fields ~w(name)a
+  @optional_fields ~w(description)a
+
   schema "characters" do
     field :name, :string
     field :description, :string
@@ -15,7 +18,7 @@ defmodule L5rKeeper.Character do
   @doc false
   def changeset(character, attrs) do
     character
-    |> cast(attrs, [:name, :description])
-    |> validate_required([:name, :description])
+    |> cast(attrs, @required_fields ++ @optional_fields)
+    |> validate_required(@required_fields)
   end
 end
