@@ -1,4 +1,4 @@
-defmodule L5rKeeper.Character do
+defmodule L5rKeeper.RPG.Character do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -10,7 +10,7 @@ defmodule L5rKeeper.Character do
     field :description, :string
     field :user_id, :id
 
-    belongs_to :users, L5rKeeper.User
+    belongs_to :users, L5rKeeper.Accounts.User
 
     timestamps()
   end
