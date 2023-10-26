@@ -1,4 +1,4 @@
-defmodule L5rKeeper.User do
+defmodule L5rKeeper.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
 
