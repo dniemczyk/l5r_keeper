@@ -5,12 +5,11 @@ defmodule L5rKeeper.RPG.Character do
   @required_fields ~w(name)a
   @optional_fields ~w(description)a
 
-  schema "characters" do
+  schema "rpg_characters" do
     field :name, :string
     field :description, :string
-    field :user_id, :id
 
-    belongs_to :users, L5rKeeper.Accounts.User
+    belongs_to :user, L5rKeeper.Accounts.User
 
     timestamps()
   end
